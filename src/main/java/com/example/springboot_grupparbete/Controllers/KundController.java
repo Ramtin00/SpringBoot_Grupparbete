@@ -7,4 +7,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/kund")
 public class KundController {
 
+    @RequestMapping("/hej")
+    public String sayHello() {
+        return "Hello";
+    }
+
 }
