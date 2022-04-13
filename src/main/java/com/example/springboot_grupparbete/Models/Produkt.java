@@ -1,9 +1,6 @@
 package com.example.springboot_grupparbete.Models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Produkt {
@@ -14,14 +11,24 @@ public class Produkt {
     private String märke;
     private String färg;
     private String storlek;
+    private int pris;
     private int antalILager;
+
+
+    @ManyToOne
+    @JoinTable(name = "beställning_produkt",
+            joinColumns = @JoinColumn(name = "produkt_id", referencedColumnName = "id", nullable = true),
+            inverseJoinColumns = @JoinColumn(name = "beställning_id", referencedColumnName = "id", nullable = true))
+    private Beställning beställning;
+
 
     public Produkt(){}
 
-    public Produkt(String märke, String färg, String storlek, int antalILager) {
+    public Produkt(String märke, String färg, String storlek, int pris, int antalILager) {
         this.märke = märke;
         this.färg = färg;
         this.storlek = storlek;
+        this.pris = pris;
         this.antalILager = antalILager;
     }
 
@@ -51,6 +58,14 @@ public class Produkt {
 
     public int getAntalILager() {
         return antalILager;
+    }
+
+    public int getPris() {
+        return pris;
+    }
+
+    public void setPris(int pris) {
+        this.pris = pris;
     }
 
     public void setAntalILager(int antalILager) {
