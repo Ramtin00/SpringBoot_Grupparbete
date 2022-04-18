@@ -1,5 +1,7 @@
 package com.example.springboot_grupparbete.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.HashSet;
@@ -17,7 +19,61 @@ public class Beställning {
 
     private int totalPris;
 
-    @OneToMany(mappedBy = "beställning")
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "kund_id", referencedColumnName = "id")
+    private Kund kund;
+
+    @ManyToMany
+    @JoinTable(
+            name = "beställning_produkt",
+            joinColumns = @JoinColumn(name = "beställning_id"),
+            inverseJoinColumns = @JoinColumn(name = "produkt_id")
+    )
     private Set<Produkt> produkter = new HashSet<>();
 
+    private int antalProdukter;
+
+    public Beställning() {
+    }
+
+    public Beställning(int totalPris, int antalProdukter) {
+        this.totalPris = totalPris;
+        this.antalProdukter = antalProdukter;
+    }
+
+    public int getTotalPris() {
+        return totalPris;
+    }
+
+    public void setTotalPris(int totalPris) {
+        this.totalPris = totalPris;
+    }
+
+    public int getAntalProdukter() {
+        return antalProdukter;
+    }
+
+    public void setAntalProdukter(int antalProdukter) {
+        this.antalProdukter = antalProdukter;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public Date getDatum() {
+        return datum;
+    }
+
+    public Kund getKund() {
+        return kund;
+    }
+
+    public void setKund(Kund kund) {
+        this.kund = kund;
+    }
+
+    public Set<Produkt> getProdukter() {
+        return produkter;
+    }
 }

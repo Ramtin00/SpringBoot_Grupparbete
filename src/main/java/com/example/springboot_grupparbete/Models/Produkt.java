@@ -1,6 +1,8 @@
 package com.example.springboot_grupparbete.Models;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Produkt {
@@ -14,12 +16,14 @@ public class Produkt {
     private int pris;
     private int antalILager;
 
+    @ManyToMany(mappedBy = "produkter")
+    private Set<Beställning> beställning = new HashSet<>();
 
-    @ManyToOne
+    /*@ManyToOne
     @JoinTable(name = "beställning_produkt",
             joinColumns = @JoinColumn(name = "produkt_id", referencedColumnName = "id", nullable = true),
             inverseJoinColumns = @JoinColumn(name = "beställning_id", referencedColumnName = "id", nullable = true))
-    private Beställning beställning;
+    private Beställning beställning;*/
 
 
     public Produkt(){}
@@ -70,6 +74,10 @@ public class Produkt {
 
     public void setAntalILager(int antalILager) {
         this.antalILager = antalILager;
+    }
+
+    public Set<Beställning> getBeställning() {
+        return beställning;
     }
 
     public Long getId() {

@@ -16,11 +16,14 @@ public class SpringBootGrupparbeteApplication {
 
     @Bean
     public CommandLineRunner initializeDB(KundRepository kundRepository) {
-        return (args) -> {
-            kundRepository.save(new Kund("Stewart", "Gatan 1", "123"));
-            kundRepository.save(new Kund("Randy", "Vägen 24", "321"));
-            kundRepository.save(new Kund("Harry", "PotterGatan 9 3/4", "1"));
-            kundRepository.save(new Kund("Homer", "SimpsonGatan 1", "12312"));
-        };
+        if (kundRepository.count() == 0) {
+            return (args) -> {
+                kundRepository.save(new Kund("Stewart", "Gatan 1", "123"));
+                kundRepository.save(new Kund("Randy", "Vägen 24", "321"));
+                kundRepository.save(new Kund("Harry", "PotterGatan 9 3/4", "1"));
+                kundRepository.save(new Kund("Homer", "SimpsonGatan 1", "12312"));
+            };
+        }
+        return null;
     }
 }
