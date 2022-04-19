@@ -5,10 +5,7 @@ import com.example.springboot_grupparbete.Models.Kund;
 import com.example.springboot_grupparbete.Repositories.BeställningRepository;
 import com.example.springboot_grupparbete.Repositories.KundRepository;
 import com.example.springboot_grupparbete.Repositories.ProduktRepository;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Set;
 
@@ -27,15 +24,17 @@ public class KundController {
         this.produktRepository = produktRepository;
     }
 
-    @RequestMapping("/hej")
-    public Set<Beställning> sayHello() {
-        Kund k = kundRepository.findById(1L).get();
-        return k.getBeställning();
+    @PostMapping("")
+    public String createKund(@RequestBody Kund nyKund) {
+        kundRepository.save(nyKund);
+        return "Saved: " + nyKund;
     }
 
     @GetMapping("/get")
     public Kund getKund(@RequestParam Long kundId) {
         return kundRepository.findById(kundId).get();
     }
+
+
 
 }

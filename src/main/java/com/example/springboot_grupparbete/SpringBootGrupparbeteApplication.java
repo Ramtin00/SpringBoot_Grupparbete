@@ -17,7 +17,7 @@ public class SpringBootGrupparbeteApplication {
     }
 
     @Bean
-    public CommandLineRunner initializeDB(KundRepository kundRepository, ProduktRepository produktRepository) {
+    public CommandLineRunner initializeDB(KundRepository kundRepository) {
         if (kundRepository.count() == 0) {
             return (args) -> {
                 kundRepository.save(new Kund("Stewart", "Gatan 1", "123"));
@@ -26,6 +26,11 @@ public class SpringBootGrupparbeteApplication {
                 kundRepository.save(new Kund("Homer", "SimpsonGatan 1", "12312"));
             };
         }
+
+        return null;
+    }
+    @Bean
+    public CommandLineRunner initializeProdukt(ProduktRepository produktRepository) {
         if (produktRepository.count() == 0) {
             return (args) -> {
                 produktRepository.save(new Produkt("Adidas", "Röd", "40", 500, 20));
@@ -34,6 +39,7 @@ public class SpringBootGrupparbeteApplication {
                 produktRepository.save(new Produkt("Asics", "Svart", "39", 700, 20));
             };
         }
+
         return null;
     }
 }
