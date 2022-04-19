@@ -4,6 +4,7 @@ import com.example.springboot_grupparbete.Models.Beställning;
 import com.example.springboot_grupparbete.Models.Kund;
 import com.example.springboot_grupparbete.Repositories.BeställningRepository;
 import com.example.springboot_grupparbete.Repositories.KundRepository;
+import com.example.springboot_grupparbete.Repositories.ProduktRepository;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,10 +19,12 @@ public class KundController {
 
     private final KundRepository kundRepository;
     private final BeställningRepository beställningRepository;
+    private final ProduktRepository produktRepository;
 
-    public KundController(KundRepository kundRepository, BeställningRepository beställningRepository) {
+    public KundController(KundRepository kundRepository, BeställningRepository beställningRepository, ProduktRepository produktRepository) {
         this.kundRepository = kundRepository;
         this.beställningRepository = beställningRepository;
+        this.produktRepository = produktRepository;
     }
 
     @RequestMapping("/hej")
