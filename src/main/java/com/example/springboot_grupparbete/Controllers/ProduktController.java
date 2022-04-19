@@ -5,9 +5,9 @@ import com.example.springboot_grupparbete.Models.Produkt;
 import com.example.springboot_grupparbete.Repositories.BeställningRepository;
 import com.example.springboot_grupparbete.Repositories.KundRepository;
 import com.example.springboot_grupparbete.Repositories.ProduktRepository;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/produkt")
@@ -22,6 +22,16 @@ public class ProduktController {
         this.beställningRepository = beställningRepository;
         this.kundRepository = kundRepository;
         this.produktRepository = produktRepository;
+    }
+
+    @GetMapping("")
+    public Iterable<Produkt> getAllProdukter() {
+        return produktRepository.findAll();
+    }
+
+    @GetMapping("{id}")
+    public Optional<Produkt> getProduktById(@PathVariable Long id) {
+        return produktRepository.findById(id);
     }
 
     @RequestMapping("/get")

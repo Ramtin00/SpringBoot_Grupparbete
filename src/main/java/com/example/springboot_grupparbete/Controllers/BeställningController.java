@@ -7,6 +7,8 @@ import com.example.springboot_grupparbete.Repositories.KundRepository;
 import com.example.springboot_grupparbete.Repositories.ProduktRepository;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Iterator;
+
 @RestController
 @RequestMapping("/beställning")
 public class BeställningController {
@@ -19,6 +21,11 @@ public class BeställningController {
         this.beställningRepository = beställningRepository;
         this.kundRepository = kundRepository;
         this.produktRepository = produktRepository;
+    }
+
+    @GetMapping("")
+    public Iterable<Beställning> getAllBeställningar() {
+        return beställningRepository.findAll();
     }
 
     @GetMapping("/get")
