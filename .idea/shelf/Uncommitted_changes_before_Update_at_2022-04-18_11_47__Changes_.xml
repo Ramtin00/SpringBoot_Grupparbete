@@ -1,0 +1,19 @@
+<changelist name="Uncommitted_changes_before_Update_at_2022-04-18_11_47_[Changes]" date="1650275253309" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022-04-18_11_47_[Changes]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Update at 2022-04-18 11:47 [Changes]" />
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/com/example/springboot_grupparbete/Controllers/KundController.class" />
+    <option name="AFTER_PATH" value="target/classes/com/example/springboot_grupparbete/Controllers/KundController.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022-04-18_11_47_[Changes]/KundController.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/com/example/springboot_grupparbete/Models/Produkt.class" />
+    <option name="AFTER_PATH" value="target/classes/com/example/springboot_grupparbete/Models/Produkt.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022-04-18_11_47_[Changes]/Produkt.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/com/example/springboot_grupparbete/SpringBootGrupparbeteApplication.class" />
+    <option name="AFTER_PATH" value="target/classes/com/example/springboot_grupparbete/SpringBootGrupparbeteApplication.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022-04-18_11_47_[Changes]/SpringBootGrupparbeteApplication.class" />
+  </binary>
+</changelist>
