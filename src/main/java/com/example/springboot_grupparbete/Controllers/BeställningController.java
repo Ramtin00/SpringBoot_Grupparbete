@@ -8,6 +8,9 @@ import com.example.springboot_grupparbete.Repositories.KundRepository;
 import com.example.springboot_grupparbete.Repositories.ProduktRepository;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.Instant;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.Optional;
 
@@ -41,6 +44,9 @@ public class BeställningController {
         Kund k = kundRepository.findById(kundId).get();
         Produkt p = produktRepository.findById(produktId).get();
         Beställning b = new Beställning();
+        //Date date = Date.from(Instant.now());
+        b.setDatum(java.sql.Date.valueOf(LocalDate.now()));
+        b.setTotalPris(p.getPris());
         b.setKund(k);
         b.getProdukter().add(p);
         beställningRepository.save(b);

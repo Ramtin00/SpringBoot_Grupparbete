@@ -1,6 +1,8 @@
 package com.example.springboot_grupparbete.Models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -15,6 +17,7 @@ public class Beställning {
     private Long id;
 
     @Temporal(TemporalType.TIMESTAMP)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private Date datum;
 
     private int totalPris;
@@ -75,6 +78,11 @@ public class Beställning {
 
     public void setKund(Kund kund) {
         this.kund = kund;
+    }
+
+
+    public void setDatum(Date datum) {
+        this.datum = datum;
     }
 
     public Set<Produkt> getProdukter() {
