@@ -2,12 +2,14 @@ package com.example.springboot_grupparbete.Controllers;
 
 import com.example.springboot_grupparbete.Models.Beställning;
 import com.example.springboot_grupparbete.Models.Kund;
+import com.example.springboot_grupparbete.Models.Produkt;
 import com.example.springboot_grupparbete.Repositories.BeställningRepository;
 import com.example.springboot_grupparbete.Repositories.KundRepository;
 import com.example.springboot_grupparbete.Repositories.ProduktRepository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Iterator;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/beställning")
@@ -35,11 +37,20 @@ public class BeställningController {
     }
 
     @PostMapping("/post")
-    public Beställning postBeställning(@RequestParam Long kundId, @RequestParam int pris) {
+    public Beställning postBeställning(@RequestParam Long kundId, @RequestParam Long produktId) {
         Kund k = kundRepository.findById(kundId).get();
+        Produkt p = produktRepository.findById(produktId).get();
         Beställning b = new Beställning();
         b.setKund(k);
+        b.getProdukter().add(p);
         beställningRepository.save(b);
         return b;
     }
+
+    @GetMapping("{kundid}")
+    public Optional<Beställning> getBeställningById(@PathVariable Long kundid) {
+        Kund k = kundRepository.findById(kundid).get();
+        return beställningRepository.findById(k.getId());
+    }
+
 }

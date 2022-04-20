@@ -1,5 +1,7 @@
 package com.example.springboot_grupparbete.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -16,6 +18,7 @@ public class Produkt {
     private int pris;
     private int antalILager;
 
+    @JsonIgnore
     @ManyToMany(mappedBy = "produkter")
     private Set<Beställning> beställning = new HashSet<>();
 

@@ -41,6 +41,10 @@ public class Beställning {
         this.antalProdukter = antalProdukter;
     }
 
+    public void setProdukter(Set<Produkt> produkter) {
+        this.produkter = produkter;
+    }
+
     public int getTotalPris() {
         return totalPris;
     }
