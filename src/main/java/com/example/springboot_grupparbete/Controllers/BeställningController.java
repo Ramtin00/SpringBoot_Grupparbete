@@ -47,6 +47,7 @@ public class BeställningController {
         Beställning b = new Beställning();
         //Date date = Date.from(Instant.now());
         //b.setDatum(java.sql.Timestamp.valueOf(LocalDateTime.now()));
+        //Datum läggs automatiskt
         b.setTotalPris(p.getPris());
         b.setKund(k);
         b.getProdukter().add(p);

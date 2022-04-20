@@ -18,6 +18,7 @@ public class Beställning {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    //Datum
     @CreationTimestamp
     @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss", timezone = "Europe/Stockholm")
     private Date datum;
