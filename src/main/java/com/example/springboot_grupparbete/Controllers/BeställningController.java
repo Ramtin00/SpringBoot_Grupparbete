@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.Instant;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.Optional;
@@ -45,7 +46,7 @@ public class BeställningController {
         Produkt p = produktRepository.findById(produktId).get();
         Beställning b = new Beställning();
         //Date date = Date.from(Instant.now());
-        b.setDatum(java.sql.Date.valueOf(LocalDate.now()));
+        //b.setDatum(java.sql.Timestamp.valueOf(LocalDateTime.now()));
         b.setTotalPris(p.getPris());
         b.setKund(k);
         b.getProdukter().add(p);
