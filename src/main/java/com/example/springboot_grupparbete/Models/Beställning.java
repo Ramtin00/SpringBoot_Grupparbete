@@ -37,14 +37,12 @@ public class Beställning {
     )
     private Set<Produkt> produkter = new HashSet<>();
 
-    private int antalProdukter;
 
     public Beställning() {
     }
 
-    public Beställning(int totalPris, int antalProdukter) {
+    public Beställning(int totalPris) {
         this.totalPris = totalPris;
-        this.antalProdukter = antalProdukter;
     }
 
     public void setProdukter(Set<Produkt> produkter) {
@@ -57,14 +55,6 @@ public class Beställning {
 
     public void setTotalPris(int totalPris) {
         this.totalPris = totalPris;
-    }
-
-    public int getAntalProdukter() {
-        return antalProdukter;
-    }
-
-    public void setAntalProdukter(int antalProdukter) {
-        this.antalProdukter = antalProdukter;
     }
 
     public Long getId() {

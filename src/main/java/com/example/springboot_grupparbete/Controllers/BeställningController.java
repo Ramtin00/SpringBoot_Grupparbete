@@ -8,6 +8,8 @@ import com.example.springboot_grupparbete.Repositories.KundRepository;
 import com.example.springboot_grupparbete.Repositories.ProduktRepository;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -40,19 +42,31 @@ public class BeställningController {
         return beställning;
     }
 
+    @GetMapping("/lagerException")
+    public String lagerSlut(){
+        return "Denna produkt är slut i lager.";
+    }
+
     @PostMapping("/post")
     public Beställning postBeställning(@RequestParam Long kundId, @RequestParam Long produktId) {
         Kund k = kundRepository.findById(kundId).get();
         Produkt p = produktRepository.findById(produktId).get();
-        Beställning b = new Beställning();
-        //Date date = Date.from(Instant.now());
-        //b.setDatum(java.sql.Timestamp.valueOf(LocalDateTime.now()));
-        //Datum läggs automatiskt
-        b.setTotalPris(p.getPris());
-        b.setKund(k);
-        b.getProdukter().add(p);
-        beställningRepository.save(b);
-        return b;
+        if (p.getAntalILager() <= 0){
+                throw new IllegalStateException("Slut i lager!");
+        }
+        else {
+            p.setAntalILager(p.getAntalILager() - 1);
+            Beställning b = new Beställning();
+            //Date date = Date.from(Instant.now());
+            //b.setDatum(java.sql.Timestamp.valueOf(LocalDateTime.now()));
+            //Datum läggs automatiskt
+            b.setTotalPris(p.getPris());
+            b.setKund(k);
+            b.getProdukter().add(p);
+            produktRepository.save(p);
+            beställningRepository.save(b);
+            return b;
+        }
     }
 
     @GetMapping("{kundid}")
