@@ -68,5 +68,4 @@ public class BeställningController {
         Kund k = kundRepository.findById(kundid).get();
         return beställningRepository.findById(k.getId());
     }
-
 }
