@@ -5,6 +5,7 @@ import com.example.springboot_grupparbete.Models.Produkt;
 import com.example.springboot_grupparbete.Repositories.BeställningRepository;
 import com.example.springboot_grupparbete.Repositories.KundRepository;
 import com.example.springboot_grupparbete.Repositories.ProduktRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
@@ -13,14 +14,11 @@ import java.util.Optional;
 @RequestMapping("/produkt")
 public class ProduktController {
 
-    private final BeställningRepository beställningRepository;
-    private final KundRepository kundRepository;
     private final ProduktRepository produktRepository;
 
 
-    public ProduktController(BeställningRepository beställningRepository, KundRepository kundRepository, ProduktRepository produktRepository) {
-        this.beställningRepository = beställningRepository;
-        this.kundRepository = kundRepository;
+    public ProduktController(ProduktRepository produktRepository) {
+
         this.produktRepository = produktRepository;
     }
 
