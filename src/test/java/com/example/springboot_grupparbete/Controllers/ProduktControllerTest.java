@@ -28,7 +28,7 @@ public class ProduktControllerTest {
     private MockMvc mvc;
 
     @MockBean
-    private ProduktRepository mockRepository;
+    private ProduktRepository produktRepository;
 
     @BeforeEach
     public void init(){
@@ -37,16 +37,17 @@ public class ProduktControllerTest {
         Produkt produkt2 = new Produkt("Adidas","blå","40", 500,1);
         Produkt produkt3 = new Produkt("Nike","vit","41", 500,1);
 
-        when(mockRepository.findById(1L)).thenReturn(Optional.of(produkt1));
-        when(mockRepository.findById(2L)).thenReturn(Optional.of(produkt2));
-        when(mockRepository.findById(3L)).thenReturn(Optional.of(produkt3));
+        when(produktRepository.findById(1L)).thenReturn(Optional.of(produkt1));
+        when(produktRepository.findById(2L)).thenReturn(Optional.of(produkt2));
+        when(produktRepository.findById(3L)).thenReturn(Optional.of(produkt3));
 
-        when(mockRepository.findAll()).thenReturn(Arrays.asList(produkt1, produkt2, produkt3));
+        when(produktRepository.findAll()).thenReturn(Arrays.asList(produkt1, produkt2, produkt3));
     }
 
     @Test
-    public void findAllTest() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.get("/produkt").accept(MediaType.APPLICATION_JSON))
+    public void findAllProduktTest() throws Exception {
+        mvc.perform(MockMvcRequestBuilders.get("/produkt")
+                .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(content().json("[{\"märke\":\"Calvin Klein\",\"färg\":\"svart\",\"storlek\":\"46\",\"pris\":1000,\"antalILager\":1}," +
                         "{\"märke\":\"Adidas\",\"färg\":\"blå\",\"storlek\":\"40\",\"pris\":500,\"antalILager\":1}," +
@@ -54,7 +55,7 @@ public class ProduktControllerTest {
     }
 
     @Test
-    void getById() throws Exception{
+    void getProduktById() throws Exception{
         mvc.perform(MockMvcRequestBuilders.get("/produkt/1")
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())

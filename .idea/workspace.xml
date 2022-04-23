@@ -5,27 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="11cfed12-710c-4106-b166-7bb21e2e7bb7" name="Changes" comment="Created a few controller tests and added getAllKunder method for KundController">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/example/springboot_grupparbete/Controllers/ProduktControllerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/example/springboot_grupparbete/HttpRequestTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/example/springboot_grupparbete/SmokeTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/example/springboot_grupparbete/Controllers/BeställningControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/example/springboot_grupparbete/Controllers/KundControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022-04-18_11_47__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022-04-18_11_47__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022-04-18_12_04__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022-04-18_12_04__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022-04-18_12_04__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022-04-18_12_04__Changes_1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022-04-18_11_47__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022-04-18_11_47__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022-04-18_11_55__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022-04-18_11_55__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/springboot_grupparbete/Controllers/BeställningController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/springboot_grupparbete/Controllers/BeställningController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/springboot_grupparbete/Controllers/KundController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/springboot_grupparbete/Controllers/KundController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/springboot_grupparbete/Controllers/ProduktController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/springboot_grupparbete/Controllers/ProduktController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/springboot_grupparbete/Models/Beställning.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/springboot_grupparbete/Models/Beställning.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/springboot_grupparbete/SpringBootGrupparbeteApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/springboot_grupparbete/SpringBootGrupparbeteApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/springboot_grupparbete/Controllers/BeställningController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/springboot_grupparbete/Controllers/BeställningController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/springboot_grupparbete/Controllers/ProduktControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/springboot_grupparbete/Controllers/ProduktControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/springboot_grupparbete/SmokeTest.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/springboot_grupparbete/Controllers/KundController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/springboot_grupparbete/Controllers/KundController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/springboot_grupparbete/Controllers/ProduktController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/springboot_grupparbete/Controllers/ProduktController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/springboot_grupparbete/Models/Beställning.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/springboot_grupparbete/Models/Beställning.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,18 +87,49 @@
       <recent name="com.example.springboot_grupparbete.Controllers" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ProduktControllerTest">
-    <configuration name="HttpRequestTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Spring Boot.SpringBootGrupparbeteApplication">
+    <configuration name="BeställningControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SpringBoot_Grupparbete" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.example.springboot_grupparbete.*" />
+          <option name="PATTERN" value="com.example.springboot_grupparbete.Controllers.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.example.springboot_grupparbete" />
-      <option name="MAIN_CLASS_NAME" value="com.example.springboot_grupparbete.HttpRequestTest" />
+      <option name="PACKAGE_NAME" value="com.example.springboot_grupparbete.Controllers" />
+      <option name="MAIN_CLASS_NAME" value="com.example.springboot_grupparbete.Controllers.BeställningControllerTest" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="KundControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SpringBoot_Grupparbete" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.springboot_grupparbete.Controllers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.springboot_grupparbete.Controllers" />
+      <option name="MAIN_CLASS_NAME" value="com.example.springboot_grupparbete.Controllers.KundControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="KundControllerTest.getById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SpringBoot_Grupparbete" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.springboot_grupparbete.Controllers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.springboot_grupparbete.Controllers" />
+      <option name="MAIN_CLASS_NAME" value="com.example.springboot_grupparbete.Controllers.KundControllerTest" />
+      <option name="METHOD_NAME" value="getById" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -142,37 +164,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestingWebApplicationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SpringBoot_Grupparbete" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.springboot_grupparbete.Controllers.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.example.springboot_grupparbete" />
-      <option name="MAIN_CLASS_NAME" value="com.example.springboot_grupparbete.TestingWebApplicationTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="WebMockTest.greetingShouldReturnMessageFromService" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SpringBoot_Grupparbete" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.springboot_grupparbete.Controllers.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.example.springboot_grupparbete" />
-      <option name="MAIN_CLASS_NAME" value="com.example.springboot_grupparbete.WebMockTest" />
-      <option name="METHOD_NAME" value="greetingShouldReturnMessageFromService" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="SpringBootGrupparbeteApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="SpringBoot_Grupparbete" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.springboot_grupparbete.SpringBootGrupparbeteApplication" />
@@ -183,10 +174,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.ProduktControllerTest" />
+        <item itemvalue="JUnit.KundControllerTest" />
+        <item itemvalue="JUnit.BeställningControllerTest" />
+        <item itemvalue="JUnit.KundControllerTest.getById" />
         <item itemvalue="JUnit.SmokeTest" />
-        <item itemvalue="JUnit.HttpRequestTest" />
-        <item itemvalue="JUnit.WebMockTest.greetingShouldReturnMessageFromService" />
-        <item itemvalue="JUnit.TestingWebApplicationTest" />
       </list>
     </recent_temporary>
   </component>
@@ -204,6 +195,7 @@
       <workItem from="1650614218737" duration="599000" />
       <workItem from="1650615412668" duration="8200000" />
       <workItem from="1650703043003" duration="4224000" />
+      <workItem from="1650707308988" duration="4179000" />
     </task>
     <task id="LOCAL−00001" summary="Created ProduktRepository">
       <created>1650276805013</created>
@@ -217,7 +209,13 @@
       <option name="presentableId" value="LOCAL−00002" />
       <updated>1650467457203</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL−00003" summary="Created a few controller tests and added getAllKunder method for KundController">
+      <created>1650707447578</created>
+      <option name="number" value="LOCAL−00003" />
+      <option name="presentableId" value="LOCAL−00003" />
+      <updated>1650707447579</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
