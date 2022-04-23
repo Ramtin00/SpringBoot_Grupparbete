@@ -38,8 +38,7 @@ public class Beställning {
     private Set<Produkt> produkter = new HashSet<>();
 
 
-    public Beställning() {
-    }
+    public Beställning() {}
 
     public Beställning(int totalPris) {
         this.totalPris = totalPris;

@@ -8,13 +8,7 @@ import com.example.springboot_grupparbete.Repositories.KundRepository;
 import com.example.springboot_grupparbete.Repositories.ProduktRepository;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.Date;
-import java.util.Iterator;
+
 import java.util.Optional;
 
 @RestController
@@ -74,5 +68,4 @@ public class BeställningController {
         Kund k = kundRepository.findById(kundid).get();
         return beställningRepository.findById(k.getId());
     }
-
 }
