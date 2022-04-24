@@ -6,6 +6,7 @@ import com.example.springboot_grupparbete.Models.Produkt;
 import com.example.springboot_grupparbete.Repositories.BeställningRepository;
 import com.example.springboot_grupparbete.Repositories.KundRepository;
 import com.example.springboot_grupparbete.Repositories.ProduktRepository;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import java.util.Arrays;
 import java.util.Optional;
@@ -31,6 +33,9 @@ public class BeställningControllerTest {
     @Autowired
     private MockMvc mvc;
 
+    @Autowired
+    ObjectMapper objectMapper;
+
     @MockBean
     private BeställningRepository beställningRepository;
     @MockBean
@@ -46,14 +51,12 @@ public class BeställningControllerTest {
         Kund kund1 = new Kund("Simon","Nackademin","0703215621");
         Produkt produkt1 = new Produkt("Calvin Klein","svart","46", 1000,1);
 
+
         when(beställningRepository.findById(1L)).thenReturn(Optional.of(beställning1));
         when(beställningRepository.findAll()).thenReturn(Arrays.asList(beställning1));
 
         when(kundRepository.findById(1L)).thenReturn(Optional.of(kund1));
-        when(kundRepository.findAll()).thenReturn(Arrays.asList(kund1));
-
         when(produktRepository.findById(1L)).thenReturn(Optional.of(produkt1));
-        when(produktRepository.findAll()).thenReturn(Arrays.asList(produkt1));
     }
 
     //Beställning/post
@@ -76,8 +79,18 @@ public class BeställningControllerTest {
     }
 
     //Beställning/{id} (findById)
+    @Test
+    void getBeställningByIdTest() throws Exception{
+        Kund kund = new Kund("Simon", "Nackademin", "0703215621");
+        mvc.perform(MockMvcRequestBuilders.get("/beställning/1")
+                .content(objectMapper.writeValueAsString(kund))
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers.status().isOk());
+    }
+
+    //Beställning/{id} (findById)
     /*@Test
-    void getBeställningById() throws Exception{
+    void getBeställningByIdTest() throws Exception{
         mvc.perform(MockMvcRequestBuilders.get("/beställning/1")
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
