@@ -8,7 +8,6 @@ import com.example.springboot_grupparbete.Repositories.KundRepository;
 import com.example.springboot_grupparbete.Repositories.ProduktRepository;
 import org.springframework.web.bind.annotation.*;
 
-
 import java.util.Optional;
 
 @RestController
@@ -36,11 +35,6 @@ public class BeställningController {
         return beställning;
     }
 
-    @GetMapping("/lagerException")
-    public String lagerSlut(){
-        return "Denna produkt är slut i lager.";
-    }
-
     @PostMapping("/post")
     public Beställning postBeställning(@RequestParam Long kundId, @RequestParam Long produktId) {
         Kund k = kundRepository.findById(kundId).get();
@@ -51,8 +45,6 @@ public class BeställningController {
         else {
             p.setAntalILager(p.getAntalILager() - 1);
             Beställning b = new Beställning();
-            //Date date = Date.from(Instant.now());
-            //b.setDatum(java.sql.Timestamp.valueOf(LocalDateTime.now()));
             //Datum läggs automatiskt
             b.setTotalPris(p.getPris());
             b.setKund(k);
