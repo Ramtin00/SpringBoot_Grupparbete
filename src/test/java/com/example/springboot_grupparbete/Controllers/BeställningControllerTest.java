@@ -18,8 +18,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
-import java.util.Arrays;
-import java.util.Optional;
+import java.util.*;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.mockito.Mockito.when;
@@ -65,36 +64,41 @@ public class BeställningControllerTest {
         mvc.perform(MockMvcRequestBuilders.post("/beställning/post?kundId=1&produktId=1")
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(content().string(equalTo("{\"id\":null,\"datum\":null,\"totalPris\":1000,\"kund\":{\"id\":null,\"namn\":\"Simon\",\"address\":\"Nackademin\",\"telNr\":\"0703215621\"},\"produkter\":[{\"id\":null,\"mÃ¤rke\":\"Calvin Klein\",\"fÃ¤rg\":\"svart\",\"storlek\":\"46\",\"pris\":1000,\"antalILager\":0}]}")));
+                .andExpect(content().string(equalTo("{\"id\":null,\"datum\":null,\"totalPris\":1000,\"kund\":{\"id\":null," +
+                        "\"namn\":\"Simon\",\"address\":\"Nackademin\",\"telNr\":\"0703215621\"},\"produkter\":[{\"id\":null,\"mÃ¤rke\"" +
+                        ":\"Calvin Klein\",\"fÃ¤rg\":\"svart\",\"storlek\":\"46\",\"pris\":1000,\"antalILager\":0}]}")));
     }
-
 
     //Beställning (findAll)
     @Test
     public void findAllBeställningTest() throws Exception {
+        Kund k1 = new Kund("Simon", "Nackademin", "0703215621");
+        Produkt p1 = new Produkt("Calvin Klein","svart","46", 1000,1);
+        Produkt p2 = new Produkt("Adidas","Vit","46", 800,1);
+        Produkt p3 = new Produkt("Nike","Rosa","42", 1000,1);
+        Set<Produkt> produkter = new HashSet<>();
+        produkter.add(p1);
+        produkter.add(p2);
+        produkter.add(p3);
+        Beställning beställning = new Beställning(2800, produkter, k1);
         mvc.perform(MockMvcRequestBuilders.get("/beställning")
-                .accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andExpect(content().json("[{\"id\":null,\"datum\":null,\"totalPris\":0,\"kund\":null,\"produkter\":[]}]"));
-    }
-
-    //Beställning/{id} (findById)
-    @Test
-    void getBeställningByIdTest() throws Exception{
-        Kund kund = new Kund("Simon", "Nackademin", "0703215621");
-        mvc.perform(MockMvcRequestBuilders.get("/beställning/1")
-                .content(objectMapper.writeValueAsString(kund))
+                .content(objectMapper.writeValueAsString(beställning))
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk());
     }
 
     //Beställning/{id} (findById)
-    /*@Test
+    @Test
     void getBeställningByIdTest() throws Exception{
+        Kund k1 = new Kund("Simon", "Nackademin", "0703215621");
+        Produkt p1 = new Produkt("Calvin Klein","svart","46", 1000,1);
+        Set<Produkt> produkter = new HashSet<>();
+        produkter.add(p1);
+        Beställning beställning = new Beställning(1000, produkter, k1);
         mvc.perform(MockMvcRequestBuilders.get("/beställning/1")
-                .accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andExpect(content().json("{\"id\":null,\"datum\":null,\"totalPris\":0,\"kund\":null,\"produkter\":[]}"));
-    }*/
+                .content(objectMapper.writeValueAsString(beställning))
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers.status().isOk());
+    }
 }
 

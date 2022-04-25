@@ -22,13 +22,6 @@ public class Produkt {
     @ManyToMany(mappedBy = "produkter")
     private Set<Beställning> beställning = new HashSet<>();
 
-    /*@ManyToOne
-    @JoinTable(name = "beställning_produkt",
-            joinColumns = @JoinColumn(name = "produkt_id", referencedColumnName = "id", nullable = true),
-            inverseJoinColumns = @JoinColumn(name = "beställning_id", referencedColumnName = "id", nullable = true))
-    private Beställning beställning;*/
-
-
     public Produkt(){}
 
     public Produkt(String märke, String färg, String storlek, int pris, int antalILager) {

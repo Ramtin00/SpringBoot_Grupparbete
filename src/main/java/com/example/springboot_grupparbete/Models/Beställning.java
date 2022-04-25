@@ -37,11 +37,11 @@ public class Beställning {
     )
     private Set<Produkt> produkter = new HashSet<>();
 
-
     public Beställning() {}
 
-    public Beställning(int totalPris) {
-        this.totalPris = totalPris;
+    public Beställning(int totalPris, Set<Produkt> produkter, Kund kund){
+        this.produkter = produkter;
+        this.kund = kund;
     }
 
     public void setProdukter(Set<Produkt> produkter) {

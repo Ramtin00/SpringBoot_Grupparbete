@@ -32,10 +32,10 @@ public class KundController {
         return kundRepository.findAll();
     }
 
-    /*@GetMapping("/get")
+    @GetMapping("/get")
     public Kund getKund(@RequestParam Long kundId) {
         return kundRepository.findById(kundId).get();
-    }*/
+    }
 
     @GetMapping("{id}")
     public Optional<Kund> getKundById(@PathVariable Long id) {
